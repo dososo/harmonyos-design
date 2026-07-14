@@ -1,0 +1,1749 @@
+version: 1.0.0
+last_verified: '2026-07-11'
+rules:
+- id: HD-FOUNDATION-001
+  title: 先建立设备与任务上下文
+  category: foundation
+  statement: 在给出设计或动效结论前，必须明确目标设备、窗口、输入方式、API Level、主题、字号和可用证据；无法确认时显式列出假设。
+  rationale: 鸿蒙全场景体验依赖设备差异与跨设备一致性，脱离上下文的统一答案容易在其他终端失效。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: &id001
+    - all
+    windows: &id002
+    - all
+    inputs: &id003
+    - all
+    api_min: null
+    api_max: null
+    exclusions: &id004 []
+  source:
+    id: OH-UX-PRINCIPLES
+    locator: 设计原则与设计要点
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查报告是否包含上下文卡
+    - 检查是否静默假设手机触摸环境
+    good:
+    - 已复用用户信息，并把缺失条件列为假设
+    bad:
+    - 未询问设备就给出单一手机布局
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: human
+    confidence: high
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-FOUNDATION-002
+  title: 系统控件与原生能力优先
+  category: foundation
+  statement: 优先使用系统控件、默认状态和 ArkUI 原生动画；自定义必须证明系统能力不足，并不得削弱状态、无障碍、可打断性和性能。
+  rationale: 系统组件已经承担多设备状态、输入归一和可访问性责任，重复覆盖会造成行为冲突和维护负担。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-MULTIMODAL-COMPONENTS
+    locator: 多态控件特点与控件状态
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 识别自定义 Button、Tabs、Navigation 和滚动行为
+    - 检查是否重复叠加系统已有反馈
+    good:
+    - 系统 Button 保留默认按压，业务只增加必要语义
+    bad:
+    - 为了统一外观覆盖所有系统状态和转场
+  arkui:
+    preferred:
+    - Button
+    - Tabs
+    - Navigation
+    - List
+    - transition
+    - animateTo
+    alternatives: []
+    cautions:
+    - 自定义前核验目标 SDK 默认行为
+  detection:
+    mode: hybrid
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-FOUNDATION-003
+  title: 来源和规范性必须诚实
+  category: foundation
+  statement: 每个重要规则和数值必须标明 H1-H4 来源等级及数值类型；H3/H4 不得写成华为或鸿蒙官方强制要求。
+  rationale: 设计 Skill 的权威语气容易掩盖来源缺口，错误的官方性会导致参数被机械套用并损害信任。
+  normativity: MUST
+  severity: major
+  source_tier: H4
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: HD-PROJECT-METHOD
+    locator: 来源与规范性诚实标注的项目治理原则
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查规则 ID、来源等级、最后核验日期和 value_kind
+    good:
+    - 明确写为官方参考、API 默认或 House Style
+    bad:
+    - 声称 0.97 是 HarmonyOS 官方按压值
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: static
+    confidence: high
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-FOUNDATION-004
+  title: 设计必须匹配产品语境而非统一滤镜
+  category: foundation
+  statement: 设计和动效应匹配任务频率、风险、设备、交互距离、品牌和用户情绪，并明确应保留的产品特征与不应套用的通用风格。
+  rationale: 设计工具容易把玻璃、弹跳和统一视觉风格套到所有产品，造成同质化风险。
+  normativity: HOUSE
+  severity: major
+  source_tier: H4
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: HD-PROJECT-METHOD
+    locator: 反同质化：设计匹配产品语境而非统一滤镜
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查是否无差别加入玻璃、模糊、大圆角、发光和弹跳
+    - 检查是否记录品牌保留项
+    good:
+    - 金融产品保持克制和状态真实，儿童产品才使用适度愉悦
+    bad:
+    - 所有案例都被改造成同一深色卡片 Dashboard
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: human
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: project
+- id: HD-NAV-001
+  title: 导航必须提供方向感与退出路径
+  category: navigation
+  statement: 每个关键界面应让用户知道身处何处、可去哪里、操作后到哪里以及如何返回或退出。
+  rationale: 清晰导航降低迷失和误操作，是跨设备保持概念一致性的基础。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-NAV-STRUCTURE
+    locator: 导航原则
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查标题、选中态、返回入口和退出路径
+    good:
+    - 进入详情后能预测返回位置并保留列表状态
+    bad:
+    - 全屏子页没有返回或关闭语义
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: human
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-NAV-002
+  title: 控制导航深度并提供效率路径
+  category: navigation
+  statement: 导航层级通常应控制在三层以内；确需更深时，应提供搜索、层级穿透、面包屑、分栏或返回主界面等效率路径。
+  rationale: 过深层级会增加访问成本并降低用户对位置的理解。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: OFFICIAL_REFERENCE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-NAV-STRUCTURE
+    locator: 避免层级过深
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 统计关键任务层级
+    - 检查深层页面是否有快速路径
+    good:
+    - 平板以列表-详情分栏减少重复 Push
+    bad:
+    - 常用开关藏在五层设置页且无搜索
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: human
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  values:
+    recommended_max_levels: 3
+  stability: evergreen
+  design_layer: foundation
+- id: HD-NAV-003
+  title: 同一层级避免竞争性导航
+  category: navigation
+  statement: 不要让底部页签、侧边导航或顶部页签同时表达同一组平级模块，也不要让焦点态和选中态产生互相矛盾的导航信号。
+  rationale: 重复导航会增加认知负担并让用户无法判断当前层级和选择。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-NAV-STRUCTURE
+    locator: 避免导航复杂
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查页面是否存在两套等价全局导航
+    good:
+    - 宽屏将底部页签转换为单一侧边导航
+    bad:
+    - 侧边栏中仍保留同一组底部 Tab
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: human
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-NAV-004
+  title: 导航形态随设备与输入适配
+  category: navigation
+  statement: 保持导航语义和信息架构一致，但可根据窗口、输入和任务把底部页签转换为侧边或顶部导航，把父子页面转换为分栏。
+  rationale: 跨设备一致性不等于视觉和布局完全相同，设备能力应被利用。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-UX-PRINCIPLES
+    locator: 自适应应用架构
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 比较手机、平板和 PC 的同一任务结构
+    good:
+    - 手机 Push 详情，平板列表-详情双栏
+    bad:
+    - 平板只是把手机底部 Tab 和卡片等比放大
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: human
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-ADAPT-001
+  title: 适配方案必须命名具体策略
+  category: adaptation
+  statement: 跨设备方案必须明确采用拉伸、均分、缩放、延伸、隐藏、折行、缩进、挪移、重复、分栏或导航转换中的一种或多种，而不能只写“做响应式”。
+  rationale: 具体策略可被设计、实现和验证，笼统的响应式要求无法指导 Coding Agent。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-ADAPTIVE-LAYOUT
+    locator: 自适应布局能力
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查设计说明是否写明适配策略
+    good:
+    - 窄屏折行、宽屏挪移为左右布局
+    bad:
+    - 仅设置 width 100% 就声称已适配
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: human
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-ADAPT-002
+  title: 禁止用整页等比缩放代替适配
+  category: adaptation
+  statement: 不要把全部界面元素同时等比缩放；应保证内容不截断、不变形、不过度拥挤，也不过多空白，并针对窗口变化重新组织信息。
+  rationale: 整页缩放会降低信息量和可读性，无法利用宽屏能力。
+  normativity: MUST
+  severity: blocker
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-DESIGN-CHECKLIST
+    locator: 布局拉通设计与自适应要求
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查固定尺寸、裁剪、空白比例和大图大字
+    good:
+    - 宽屏增加列或分栏，文字保持可读宽度
+    bad:
+    - 横屏只把所有组件放大 1.5 倍
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: hybrid
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-ADAPT-003
+  title: 支持目标设备的主要输入和控件状态
+  category: adaptation
+  statement: 在目标设备支持相应的触摸、鼠标、触控板、键盘、遥控器或旋钮交互，并提供正常、禁用、按下、焦点、激活和悬停等适用状态。
+  rationale: 控件在多设备和多输入环境下需要以符合用户习惯的方式响应。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-MULTIMODAL-COMPONENTS
+    locator: 控件的状态
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查鼠标悬停、键盘焦点、遥控器导航和触摸按下
+    good:
+    - 平板外接键盘后所有核心功能可达且焦点清晰
+    bad:
+    - 自定义卡片只响应触摸，无焦点和悬停
+  arkui:
+    preferred:
+    - stateStyles
+    - focusable
+    - 系统控件默认状态
+    alternatives: []
+    cautions:
+    - API 名与可用范围按目标 SDK 核验
+  detection:
+    mode: hybrid
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-ADAPT-004
+  title: 断点不能替代设备和场景语义
+  category: adaptation
+  statement: 布局断点只能表示可用尺寸，不能单独推断输入方式、交互距离、设备姿态或用户任务；适配必须同时考虑这些因素。
+  rationale: 相同宽度的触摸设备、摇杆设备和桌面窗口可能需要完全不同的交互。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-RESPONSIVE-LAYOUT
+    locator: 栅格断点系统与设备差异说明
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查方案是否仅凭宽度决定所有行为
+    good:
+    - 断点决定列数，输入能力单独决定焦点和 Hover
+    bad:
+    - 只要宽度大于某值就假设有鼠标键盘
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: human
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-INTERACTION-001
+  title: 点击在按下阶段立即反馈
+  category: interaction
+  statement: 可点击元素应在按下时提供即时反馈，抬起时提交；不要等操作完成后才显示第一次反馈。
+  rationale: 按下到抬起之间存在可感知时间，提前反馈能确认系统已接收到输入。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope: &id005
+    platforms:
+    - phone
+    - tablet
+    - foldable
+    windows:
+    - all
+    inputs:
+    - touch
+    - touchpad
+    api_min: 9
+    api_max: null
+    exclusions: []
+  source:
+    id: OH-GESTURE-MOTION
+    locator: 点击
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查 onTouch/系统按下态与 onClick 时序
+    good:
+    - 系统 Button 默认按下态立即可见
+    bad:
+    - 用户抬起并等待请求后按钮才变化
+  arkui:
+    preferred:
+    - 系统 Button 默认点击动效
+    - stateStyles
+    alternatives: []
+    cautions:
+    - 自定义缩放值为 House Style
+  detection:
+    mode: hybrid
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-INTERACTION-002
+  title: 长按不得成为核心功能唯一入口
+  category: interaction
+  statement: 高频或关键功能不能只通过长按发现；若使用长按，应提供可发现的替代入口，并在适当场景配合触觉反馈。
+  rationale: 公开输入规范指出长按发现性较差，适合菜单、模式和编辑等特定场景。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-INPUT-MODES
+    locator: 基于触控的交互—长按
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查核心功能是否只有长按可达
+    good:
+    - 长按打开快捷菜单，同时更多按钮也可进入
+    bad:
+    - 删除、分享或编辑只能靠长按
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: human
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-INTERACTION-003
+  title: 焦点、悬停、按下与激活状态应可区分
+  category: interaction
+  statement: 多输入控件的焦点、悬停、按下和激活状态应在语义和视觉上清晰区分，且状态变化同步到无障碍属性。
+  rationale: 这些状态分别表达当前目标、指针到达、即时输入和持久选择，混淆会导致错误预测。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-MULTIMODAL-COMPONENTS
+    locator: 常见状态类型
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查同一控件的状态矩阵
+    good:
+    - Tab 焦点环与已选中填充可以同时理解
+    bad:
+    - 焦点态和选中态完全相同，键盘用户不知当前目标
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: hybrid
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-MOTION-001
+  title: 每个动效都要有可说明的目的
+  category: motion
+  statement: 动效必须服务反馈、状态、层级、连续性、注意力或必要的品牌时刻；纯粹为了显得高级的高频动效应删除。
+  rationale: 无目的运动会分散注意力、增加等待并造成产品同质化。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-MOTION-OVERVIEW
+    locator: 如何使用
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 询问去掉动效是否损害理解
+    - 检查触发频率
+    good:
+    - 共享元素帮助理解列表到详情关系
+    bad:
+    - 每次打开常用菜单都播放长弹跳
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: human
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-MOTION-002
+  title: 时长应匹配距离、范围和复杂度
+  category: motion
+  statement: 使用公开时长参考建立量级，并根据运动距离、区域范围、复杂度、设备和触发频率调整；不得把一个时长套到所有组件。
+  rationale: 过短会丢失中间状态，过长会增加等待，不同范围和复杂度需要不同时间。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: OFFICIAL_REFERENCE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-MOTION-ATTRIBUTES
+    locator: 时长—复杂程度与区域范围
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查简单、局部和全屏动效是否同一时长
+    good:
+    - 颜色约 100ms、局部约 200ms、全屏不超过合理量级并经真机调校
+    bad:
+    - 所有动画统一 300ms
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: hybrid
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  values:
+    simple_color_ms: 100
+    very_short_max_ms: 150
+    local_reference_ms: 200
+    short_distance_max_ms: 250
+    complex_reference_ms: 300
+    long_distance_max_ms: 350
+  stability: evergreen
+  design_layer: foundation
+- id: HD-MOTION-003
+  title: 曲线语义应匹配进入、退出和屏内变化
+  category: motion
+  statement: 屏内对象变化优先标准曲线，进入视线优先减速语义，退出视线优先加速语义；弹性只用于跟手、速度或明确物理回稳。
+  rationale: 曲线决定运动的因果感，错误曲线会让响应显得迟钝或方向失真。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: OFFICIAL_REFERENCE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-MOTION-ATTRIBUTES
+    locator: 贝塞尔曲线与弹性曲线
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查曲线与对象可见性和状态关系
+    good:
+    - 弹框进入使用减速语义，屏内 Tab 使用标准语义
+    bad:
+    - 普通提示入场使用多次弹跳
+  arkui:
+    preferred:
+    - Curve.FastOutSlowIn
+    - Curve.LinearOutSlowIn
+    - Curve.FastOutLinearIn
+    - curves.springMotion()
+    alternatives: []
+    cautions:
+    - 曲线枚举行为以目标 SDK 为准
+  detection:
+    mode: hybrid
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  values:
+    standard_curve: cubic-bezier(0.40,0.00,0.20,1.00)
+    decelerate_curve: cubic-bezier(0.00,0.00,0.40,1.00)
+  stability: evergreen
+  design_layer: foundation
+- id: HD-MOTION-004
+  title: 连续手势离手后继承速度
+  category: motion
+  statement: 滑动、拖拽、捏合等连续手势的离手动画应从当前显示状态继续并继承离手速度，避免从零速度重启。
+  rationale: 速度突变会产生急刹车感并破坏手势、视觉和心理预期的连续性。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope: *id005
+  source:
+    id: OH-ARKUI-SMOOTHING
+    locator: 手势与动画的衔接
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查 Touch Up 后的曲线和速度来源
+    - 进行快慢抛滑对比
+    good:
+    - 跟手 responsiveSpringMotion，离手 springMotion 自动衔接
+    bad:
+    - 松手后固定时长动画从零速度开始
+  arkui:
+    preferred:
+    - curves.responsiveSpringMotion()
+    - curves.springMotion()
+    - curves.interpolatingSpring()
+    alternatives: []
+    cautions:
+    - interpolatingSpring velocity 为归一化速度
+  detection:
+    mode: hybrid
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-MOTION-005
+  title: 动画必须可打断并从当前状态重定向
+  category: motion
+  statement: 当用户在动画中产生新意图时，应立即从当前显示状态平滑转向新目标，不得锁住输入、排队等待或从旧目标跳变。
+  rationale: 思想和手势会并行变化，可打断性决定界面是否真正响应用户。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-ARKUI-SMOOTHING
+    locator: 动画与动画的衔接
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 连续快速点击或反向拖动
+    - 检查目标改变时是否跳变
+    good:
+    - 快速切换缩放目标时当前动画平滑接续
+    bad:
+    - 关闭面板期间无法重新打开
+  arkui:
+    preferred:
+    - animateTo
+    - 属性动画
+    - curves.springMotion()
+    alternatives: []
+    cautions:
+    - 从状态变量当前展示结果继续，避免逻辑目标跳变
+  detection:
+    mode: runtime
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-MOTION-006
+  title: 跟手与回稳优先使用 ArkUI 弹性曲线语义
+  category: motion
+  statement: 跟手阶段优先考虑 responsiveSpringMotion，离手回稳和速度衔接优先考虑 springMotion；只有默认行为不足时才使用显式物理参数。
+  rationale: ArkUI 已提供针对跟手和回稳的不同默认参数，可降低自定义物理出错概率。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: ARKUI_DEFAULT
+  scope: *id005
+  source:
+    id: OH-ARKUI-CURVES
+    locator: springMotion 与 responsiveSpringMotion
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查自定义手势是否使用无来源的固定曲线
+    good:
+    - 默认参数先真机验证，再按语义调整
+    bad:
+    - 从其他平台参数直接换算并称鸿蒙标准
+  arkui:
+    preferred:
+    - curves.responsiveSpringMotion()
+    - curves.springMotion()
+    alternatives:
+    - curves.interpolatingSpring()
+    cautions:
+    - 默认值是 API 默认，不是统一产品 Token
+  detection:
+    mode: static
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  values:
+    springMotion:
+      response: 0.55
+      dampingFraction: 0.825
+      overlapDuration: 0
+    responsiveSpringMotion:
+      response: 0.15
+      dampingFraction: 0.86
+      overlapDuration: 0.25
+  stability: versioned
+  design_layer: platform
+- id: HD-MOTION-007
+  title: 物理曲线时长不得作为业务计时器
+  category: motion
+  statement: 对 springMotion、responsiveSpringMotion 和 interpolatingSpring，不得使用 duration
+    或预计结束时间驱动提交、删除、成功确认等业务状态。
+  rationale: 公开 API 文档说明物理曲线实际时长由参数、速度和算法决定，duration 对这些曲线不生效。
+  normativity: MUST
+  severity: blocker
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-ARKUI-CURVES
+    locator: 物理曲线 duration 不生效说明
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 搜索物理动画完成时间与业务回调耦合
+    good:
+    - 业务状态由真实事件驱动，动画只渲染状态
+    bad:
+    - 等待 550ms 后假设操作成功
+  arkui:
+    preferred:
+    - 独立业务状态机
+    - 真实请求完成回调
+    alternatives: []
+    cautions:
+    - Navigation 默认弹簧时长也可能随设备不同
+  detection:
+    mode: hybrid
+    confidence: high
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: versioned
+  design_layer: platform
+- id: HD-MOTION-008
+  title: 转场应表达真实层级并避免默认动画叠加
+  category: motion
+  statement: 同层、上下层和跨层转场应使用一致的空间关系；使用 geometryTransition 或自定义 Navigation 转场时，应检查并避免与系统默认转场叠加。
+  rationale: 转场是用户理解界面架构的重要线索，叠加或错误方向会破坏连续性。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-NAV-ANIMATION
+    locator: 共享元素转场与默认转场说明
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查共享 ID、默认动画开关、进入返回方向
+    good:
+    - 共享图片从列表扩展到详情并在返回时复原
+    bad:
+    - 共享元素和系统整页滑动同时播放造成双重运动
+  arkui:
+    preferred:
+    - geometryTransition
+    - NavPathStack
+    - customNavContentTransition
+    alternatives: []
+    cautions:
+    - 关闭默认转场后仍需保留清晰返回关系
+  detection:
+    mode: hybrid
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: versioned
+  design_layer: platform
+- id: HD-ASYNC-001
+  title: 动效不得虚假表达远端成功
+  category: async
+  statement: 当操作依赖后端、设备同步或耗时任务时，成功性视觉和无障碍反馈只能在真实结果确认后出现；本地按下只能表达输入已接收。
+  rationale: 评论指出后端延迟会让转场“撒谎”，过早成功会损害信任并在失败回滚时造成强烈认知冲突。
+  normativity: MUST
+  severity: blocker
+  source_tier: H4
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: HD-PROJECT-METHOD
+    locator: 异步状态真实性：成功反馈不早于真实确认
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 模拟慢网与失败，观察成功图标和播报时机
+    good:
+    - 点击后进入 pending，后端确认后才显示完成
+    bad:
+    - 支付请求发出即显示成功勾选
+  arkui:
+    preferred:
+    - 显式业务状态机
+    alternatives: []
+    cautions:
+    - 支付、删除、权限、发布和同步默认保守确认
+  detection:
+    mode: hybrid
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-ASYNC-002
+  title: 区分本地确认、处理中和最终结果
+  category: async
+  statement: 异步交互至少区分 idle、acknowledged、pending、confirmed 和 failed，并让视觉、操作可用性与无障碍语义保持一致。
+  rationale: 状态分层可以同时提供即时反馈和真实结果，避免把感知性能建立在错误承诺上。
+  normativity: HOUSE
+  severity: major
+  source_tier: H4
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: HD-PROJECT-METHOD
+    locator: 异步状态分层：Idle/Acknowledged/Pending/Confirmed/Failed
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查状态枚举、按钮状态和提示文案
+    good:
+    - 按下、加载、成功、失败各有清晰语义
+    bad:
+    - 只有 idle 与 success 两个状态
+  arkui:
+    preferred:
+    - 显式状态枚举
+    - 请求 ID
+    alternatives: []
+    cautions:
+    - 状态命名可按项目调整，语义不可省略
+  detection:
+    mode: hybrid
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-ASYNC-003
+  title: 乐观更新必须可回滚且不误导
+  category: async
+  statement: 只有在失败可安全恢复、用户不会遭受不可逆损失且回滚路径清晰时才使用乐观更新；否则保持 pending 直到确认。
+  rationale: 乐观 UI 可改善感知速度，但错误使用会隐藏失败、重复提交或数据冲突。
+  normativity: HOUSE
+  severity: major
+  source_tier: H4
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: HD-PROJECT-METHOD
+    locator: 乐观更新必须提供可靠回滚
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查失败后数据、焦点和动画如何恢复
+    good:
+    - 轻量收藏先更新，失败时保留说明并可靠回滚
+    bad:
+    - 删除或支付先不可逆消失，失败后无法恢复
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: human
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-ASYNC-004
+  title: 异步流程必须处理超时、取消、重复和乱序
+  category: async
+  statement: 异步交互应定义超时、取消、重试、重复提交和响应乱序的行为，且动画不能阻止用户恢复或继续任务。
+  rationale: 真实网络和分布式设备会产生延迟与乱序，只有正常成功路径的动效不是完整产品行为。
+  normativity: HOUSE
+  severity: major
+  source_tier: H4
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: HD-PROJECT-METHOD
+    locator: 超时/取消/重复提交/响应乱序纳入状态机
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 注入超时、双击提交和响应乱序
+    good:
+    - 旧请求结果被忽略，按钮状态可恢复并可重试
+    bad:
+    - 第二次提交完成后被第一次旧响应覆盖
+  arkui:
+    preferred:
+    - 请求唯一标识
+    - 取消令牌或项目等价机制
+    alternatives: []
+    cautions:
+    - 具体并发实现由项目技术栈决定
+  detection:
+    mode: runtime
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-VISUAL-001
+  title: 布局使用 vp，字体使用 fp
+  category: visual
+  statement: 界面布局尺寸应使用 vp，字体大小应使用 fp 并响应系统字体缩放；仅在严格控制硬件像素的场景使用 px。
+  rationale: vp 保持不同密度下的视觉体量，fp 支持用户字号偏好。
+  normativity: MUST
+  severity: major
+  source_tier: H2
+  value_kind: OFFICIAL_REQUIREMENT
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-DESIGN-CHECKLIST
+    locator: 视觉风格—单位与字体
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 搜索硬编码 px 和以 vp 固定字体的用法
+    good:
+    - 布局 16vp、字体 16fp，并通过大字体测试
+    bad:
+    - 所有尺寸和字体都使用 px
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: static
+    confidence: high
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  values:
+    layout_unit: vp
+    font_unit: fp
+  stability: versioned
+  design_layer: platform
+- id: HD-VISUAL-002
+  title: 视觉值使用语义分层参数
+  category: visual
+  statement: 颜色、字体、圆角、间距、阴影、模糊、缩放和动效应使用语义 Token 或分层资源，并允许按主题和设备映射不同具体值。
+  rationale: 分层参数能在多设备和多主题保持语义一致，同时避免裸值散落。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-VISUAL-BASIS
+    locator: 视觉属性—分层参数
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查裸色值、重复圆角和页面级魔法数
+    good:
+    - emphasize、surface、spacing 等语义资源按主题映射
+    bad:
+    - 每个页面复制不同蓝色和阴影
+  arkui:
+    preferred:
+    - 资源系统
+    - 语义 MotionTokens
+    alternatives: []
+    cautions:
+    - 8vp 是规划基础，不是所有值必须取 8 的倍数
+  detection:
+    mode: static
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: versioned
+  design_layer: platform
+- id: HD-VISUAL-003
+  title: 大字体与长文本不得破坏核心任务
+  category: visual
+  statement: 字体放大、本地化长文本和不同窗口下，核心内容和操作不得被裁剪、重叠或隐藏；布局应通过换行、滚动、扩展或重排适配。
+  rationale: 使用 fp 只是起点，固定高度和单行假设仍可能让大字体用户无法完成任务。
+  normativity: MUST
+  severity: blocker
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-DESIGN-CHECKLIST
+    locator: 字体响应系统大字体模式
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 用系统大字体和长文本运行关键路径
+    good:
+    - Dialog 可滚动，按钮和表单随内容扩展
+    bad:
+    - 放大字体后保存按钮被裁掉
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions: []
+  detection:
+    mode: runtime
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-A11Y-001
+  title: 非文本交互元素必须有简洁功能语义
+  category: accessibility
+  statement: 图标、图片和自定义可点击区域必须提供可被辅助工具识别的简洁功能名称，不能只播报“图片”或文件名。
+  rationale: 没有功能语义时，屏幕朗读用户无法理解或完成关键操作。
+  normativity: MUST
+  severity: blocker
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-ARKUI-ACCESSIBILITY
+    locator: 设置无障碍文本
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 识别带 onClick 的 Image/Column 等非文本组件
+    good:
+    - 播放图标设置 accessibilityText 为“播放”
+    bad:
+    - 图标按钮只播报“图片，单指双击可执行”
+  arkui:
+    preferred:
+    - accessibilityText
+    - accessibilityDescription
+    alternatives: []
+    cautions:
+    - 使用资源字符串并与当前状态同步
+  detection:
+    mode: static
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-A11Y-002
+  title: 无障碍角色、选择状态和分组必须准确
+  category: accessibility
+  statement: 使用正确的 role、checked、selected、group 和虚拟节点表达控件语义；勾选状态与互斥选择状态不得混用。
+  rationale: 准确状态可以让辅助工具传递控件真实行为并减少冗余播报。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-ARKUI-ACCESSIBILITY
+    locator: checked、selected、group 与 virtual node
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查 Toggle、Tabs、自绘图表和组合卡片
+    good:
+    - Toggle 使用 checked，Tab 使用 selected，日期使用 group
+    bad:
+    - Tab 用 checked，多个独立按钮被错误分组
+  arkui:
+    preferred:
+    - accessibilityChecked
+    - accessibilitySelected
+    - accessibilityGroup
+    - accessibilityVirtualNode
+    alternatives: []
+    cautions: []
+  detection:
+    mode: hybrid
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-A11Y-003
+  title: 焦点顺序与异步播报必须跟随真实任务状态
+  category: accessibility
+  statement: Dialog、分栏、折行和异步流程中的焦点顺序、返回位置和状态播报必须符合任务；不得在远端确认前播报成功。
+  rationale: 视觉可见不代表辅助工具可理解，错误焦点和过早播报会使用户被困或收到虚假结果。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-ARKUI-ACCESSIBILITY
+    locator: 无障碍能力范围与状态传递
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 屏幕朗读关键路径、Dialog 开关、慢网成功失败
+    good:
+    - Dialog 关闭后焦点回触发器，确认后才播报成功
+    bad:
+    - 打开 Dialog 后焦点留在背景，提交即播报成功
+  arkui:
+    preferred:
+    - accessibilityLevel
+    - accessibilityDescription
+    - 项目焦点管理能力
+    alternatives: []
+    cautions:
+    - 具体焦点 API 按目标 SDK 核验
+  detection:
+    mode: runtime
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: evergreen
+  design_layer: foundation
+- id: HD-PERF-001
+  title: 出现消失和常规动画优先系统接口
+  category: performance
+  statement: 优先使用 ArkUI 系统动画接口；条件组件出现和消失优先 transition，避免通过 setTimeout 手写逐帧或用复杂结束回调控制删除。
+  rationale: 公开性能资料显示系统接口降低 UI 主线程负载，transition 也可减少状态更新和实现复杂度。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-ANIMATION-PRACTICE
+    locator: 组件转场动画使用 transition
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 搜索 setTimeout 动画、手写帧循环和删除回调
+    good:
+    - 条件渲染配合 TransitionEffect
+    bad:
+    - 每 16ms setTimeout 修改宽高
+  arkui:
+    preferred:
+    - transition
+    - animateTo
+    - 属性动画
+    alternatives: []
+    cautions: []
+  detection:
+    mode: static
+    confidence: high
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: versioned
+  design_layer: platform
+- id: HD-PERF-002
+  title: 连续动画优先图形变换并减少冗余刷新
+  category: performance
+  statement: 连续位置和大小变化优先 translate、scale 等图形变换；相同参数属性合并到一个 animateTo，并用真机工具验证长帧。
+  rationale: 布局属性变化会重新测量，分散 animateTo 和冗余状态更新会增加性能开销。
+  normativity: SHOULD
+  severity: major
+  source_tier: H2
+  value_kind: NONE
+  scope:
+    platforms: *id001
+    windows: *id002
+    inputs: *id003
+    api_min: null
+    api_max: null
+    exclusions: *id004
+  source:
+    id: OH-ANIMATION-PRACTICE
+    locator: 图形变换、同一 animateTo 与统一状态更新
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查手势回调中的 width/height、重复 animateTo 和状态刷新
+    good:
+    - 拖拽使用 translate，同参数变化在一个闭包，SmartPerf 验证
+    bad:
+    - 拖动每帧修改 width/height 并调用多个 animateTo
+  arkui:
+    preferred:
+    - translate
+    - scale
+    - 一个 animateTo
+    - ArkUI Inspector
+    - SmartPerf
+    alternatives: []
+    cautions:
+    - 最终布局、命中区域和无障碍几何仍需真实一致
+  detection:
+    mode: hybrid
+    confidence: medium
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议，避免在缺少业务上下文时改变产品行为。
+  status: active
+  confidence: high
+  introduced: 0.1.0
+  last_changed: '2026-07-11'
+  stability: versioned
+  design_layer: platform
+- id: HD-FOUNDATION-005
+  title: 稳定原则与版本化视觉语言必须分层
+  category: foundation
+  statement: 长期有效的人因、交互、层级、可读性、无障碍和状态真实性原则，必须与当前 HarmonyOS 视觉语言、组件默认和 API 能力分层维护。
+  rationale: 作者选择 2018 与 2020 演讲的理由是建议具有持久性，而非回避新视觉趋势；混写会导致追新时推翻基础原则，或守旧时拒绝新平台能力。
+  normativity: HOUSE
+  severity: major
+  source_tier: H4
+  stability: evergreen
+  design_layer: foundation
+  value_kind: NONE
+  scope:
+    platforms: &id006
+    - all
+    windows: &id007
+    - all
+    inputs: &id008
+    - all
+    api_min: null
+    api_max: null
+    exclusions: &id009 []
+  source:
+    id: HD-PROJECT-METHOD
+    locator: 永恒基础原则与版本化视觉语言分层
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查规则或方案是否区分 Evergreen Foundation、Versioned Platform Layer 与 Project Overlay
+    - 检查最新视觉趋势是否覆盖导航、可读性或状态真实性
+    good:
+    - 采用新平台材质，同时保留方向感、对比度、可访问性和真实状态
+    bad:
+    - 因为当前流行玻璃风格而统一覆盖所有组件，或因旧原则拒绝所有新平台能力
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions:
+    - 平台层必须记录目标 SDK、设备和最后核验日期
+  detection:
+    mode: human
+    confidence: high
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议；该判断需要产品、平台版本或运行证据。
+  status: active
+  confidence: high
+  introduced: 0.2.0
+  last_changed: '2026-07-11'
+- id: HD-FOUNDATION-006
+  title: 新项目启动必须建立设计与验证基线
+  category: foundation
+  statement: 从零启动 HarmonyOS 项目时，在编写界面代码前应建立产品上下文、稳定原则、平台版本档案、项目人格、异步状态模型、可交互原型计划和验收矩阵。
+  rationale: 原帖明确把 Skill 同时用于审视现有作品和确保新项目起点正确；缺少启动基线会让 Agent 先生成大量随机 UI，再被动返工。
+  normativity: HOUSE
+  severity: major
+  source_tier: H4
+  stability: evergreen
+  design_layer: foundation
+  value_kind: NONE
+  scope:
+    platforms: *id006
+    windows: *id007
+    inputs: *id008
+    api_min: null
+    api_max: null
+    exclusions: *id009
+  source:
+    id: HD-PROJECT-METHOD
+    locator: 新项目启动的设计与验证基线
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查新项目输出是否包含 Context Card、三层知识、原型计划和验收矩阵
+    - 检查是否在没有设备和输入假设时直接生成页面
+    good:
+    - 编码前先确定手机/平板、触摸/键鼠、API、导航、状态和验收
+    bad:
+    - 仅凭“做一个鸿蒙应用”直接生成固定手机页面和随机动画
+  arkui:
+    preferred: []
+    alternatives: []
+    cautions:
+    - 基线不是组件库；具体 API 仍需目标 SDK 核验
+  detection:
+    mode: human
+    confidence: high
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议；该判断需要产品、平台版本或运行证据。
+  status: active
+  confidence: high
+  introduced: 0.2.0
+  last_changed: '2026-07-11'
+- id: HD-FOUNDATION-007
+  title: 动态体验必须用可执行原型或真实实现验证
+  category: foundation
+  statement: 手势、转场、跨端连续性和高风险异步反馈不得仅凭静态稿或文字通过；至少需要可执行原型或真实工程，并进行快速连续操作、慢放和目标设备验证。
+  rationale: 流体界面的质量不只由帧率或静态像素决定；作者线程中的真实 iOS 实现也只是迁移信号，正式结论需要可复现工程证据。
+  normativity: SHOULD
+  severity: major
+  source_tier: H4
+  stability: evergreen
+  design_layer: foundation
+  value_kind: NONE
+  scope:
+    platforms: *id006
+    windows: *id007
+    inputs: *id008
+    api_min: null
+    api_max: null
+    exclusions: *id009
+  source:
+    id: HD-PROJECT-METHOD
+    locator: 动态体验需要可执行原型或真实实现
+    last_verified: '2026-07-11'
+  evidence:
+    inspect:
+    - 检查高风险动效是否有原型、录屏或真实工程
+    - 检查是否测试快速反向、慢放、输入变化和目标设备
+    good:
+    - 提供可运行 ArkUI 原型、构建记录、真机录屏和性能/无障碍结果
+    bad:
+    - 只凭 Figma 静态帧或模型描述声称手势自然流畅
+  arkui:
+    preferred:
+    - DevEco Studio Previewer（仅初筛）
+    - 真机运行
+    - SmartPerf
+    - ArkUI Inspector
+    alternatives:
+    - 最小 ArkUI fixture
+    cautions:
+    - Previewer 不能替代目标设备、输入和性能验证
+  detection:
+    mode: hybrid
+    confidence: high
+  autofix:
+    enabled: false
+    reason: 当前 Draft 只提供审视和建议；该判断需要产品、平台版本或运行证据。
+  status: active
+  confidence: high
+  introduced: 0.2.0
+  last_changed: '2026-07-11'

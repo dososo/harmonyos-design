@@ -1,0 +1,364 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/harmonyos-design/rules/schema.json",
+  "title": "HarmonyOS-Design 规则库",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "last_verified",
+    "rules"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-.][A-Za-z0-9]+)?$"
+    },
+    "last_verified": {
+      "type": "string",
+      "format": "date"
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 25,
+      "items": {
+        "$ref": "#/$defs/rule"
+      }
+    }
+  },
+  "$defs": {
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "platforms",
+        "windows",
+        "inputs",
+        "api_min",
+        "api_max",
+        "exclusions"
+      ],
+      "properties": {
+        "platforms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "windows": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "api_min": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "api_max": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "exclusions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "locator",
+        "last_verified"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 2
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "last_verified": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "inspect",
+        "good",
+        "bad"
+      ],
+      "properties": {
+        "inspect": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "good": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "bad": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "arkui": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "preferred",
+        "alternatives",
+        "cautions"
+      ],
+      "properties": {
+        "preferred": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cautions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "detection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "confidence"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "human",
+            "static",
+            "runtime",
+            "hybrid"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        }
+      }
+    },
+    "autofix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled",
+        "reason"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "const": false
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "category",
+        "statement",
+        "rationale",
+        "normativity",
+        "severity",
+        "source_tier",
+        "design_layer",
+        "stability",
+        "value_kind",
+        "scope",
+        "source",
+        "evidence",
+        "arkui",
+        "detection",
+        "autofix",
+        "status",
+        "confidence",
+        "introduced",
+        "last_changed"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^HD-[A-Z0-9]+-\\d{3}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 2
+        },
+        "category": {
+          "enum": [
+            "foundation",
+            "navigation",
+            "adaptation",
+            "interaction",
+            "motion",
+            "async",
+            "visual",
+            "accessibility",
+            "performance"
+          ]
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 10
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 10
+        },
+        "normativity": {
+          "enum": [
+            "MUST",
+            "SHOULD",
+            "MAY",
+            "HOUSE",
+            "OBSERVATION"
+          ]
+        },
+        "severity": {
+          "enum": [
+            "blocker",
+            "major",
+            "minor",
+            "note"
+          ]
+        },
+        "source_tier": {
+          "enum": [
+            "H1",
+            "H2",
+            "H3",
+            "H4"
+          ]
+        },
+        "stability": {
+          "enum": [
+            "evergreen",
+            "versioned",
+            "experimental"
+          ]
+        },
+        "design_layer": {
+          "enum": [
+            "foundation",
+            "platform",
+            "project"
+          ]
+        },
+        "value_kind": {
+          "enum": [
+            "OFFICIAL_REQUIREMENT",
+            "OFFICIAL_REFERENCE",
+            "ARKUI_DEFAULT",
+            "OBSERVED",
+            "HOUSE_STYLE",
+            "NONE"
+          ]
+        },
+        "values": {
+          "type": "object"
+        },
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "evidence": {
+          "$ref": "#/$defs/evidence"
+        },
+        "arkui": {
+          "$ref": "#/$defs/arkui"
+        },
+        "detection": {
+          "$ref": "#/$defs/detection"
+        },
+        "autofix": {
+          "$ref": "#/$defs/autofix"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "active",
+            "deprecated",
+            "retired"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "introduced": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "last_changed": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    }
+  }
+}

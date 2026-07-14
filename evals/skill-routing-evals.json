@@ -1,0 +1,177 @@
+{
+  "version": "1.0.0",
+  "description": "三个 Skill 的路由/消歧测试集：验证 harmonyos-design（主）、review-harmonyos-design（严格审视）、harmonyos-motion-vocabulary（术语）在边界与近似场景下不互抢触发。expected_primary 为最应触发的 Skill；acceptable 为可同时触发或次选；none 表示三者都不应触发。供阶段 D 真实模型评测的『Skill 间混淆率』『入口识别率』指标使用；trigger-evals.json 只测主 Skill 的布尔触发，本文件补充其未覆盖的 Skill 间区分。",
+  "skills": [
+    "harmonyos-design",
+    "review-harmonyos-design",
+    "harmonyos-motion-vocabulary",
+    "none"
+  ],
+  "cases": [
+    {
+      "id": "route-design-001",
+      "prompt": "从零做一个鸿蒙平板生产力应用，先建立设计基线、平台版本档案和导航适配方案，再开始生成页面。",
+      "expected_primary": "harmonyos-design",
+      "acceptable": [],
+      "reason": "新项目从零设计与启动基线，不是对既有作品的验收，也不是术语命名。",
+      "tags": [
+        "design",
+        "new-project"
+      ]
+    },
+    {
+      "id": "route-design-002",
+      "prompt": "帮我为折叠屏设计展开前后连续的页面结构与动效策略。",
+      "expected_primary": "harmonyos-design",
+      "acceptable": [],
+      "reason": "产出设计方案（结构+动效策略），不是验收结论，也不是命名。",
+      "tags": [
+        "design",
+        "foldable"
+      ]
+    },
+    {
+      "id": "route-design-003",
+      "prompt": "把这个手机页面扩展到平板，给我具体的布局策略和 ArkUI 落点。",
+      "expected_primary": "harmonyos-design",
+      "acceptable": [],
+      "reason": "实现指导，产出适配落点方案，属于主 Skill 的设计/实现模式。",
+      "tags": [
+        "design",
+        "adaptation"
+      ]
+    },
+    {
+      "id": "route-review-001",
+      "prompt": "请以严格 reviewer 身份验收这个 ArkUI PR，只报有证据的问题，按规则 ID 给出通过/有条件通过/不通过。",
+      "expected_primary": "review-harmonyos-design",
+      "acceptable": [
+        "harmonyos-design"
+      ],
+      "reason": "明确要求严格验收并给结论门槛，且不要求重新设计，命中严格审视职责。",
+      "tags": [
+        "review",
+        "audit"
+      ]
+    },
+    {
+      "id": "route-review-002",
+      "prompt": "audit 这个鸿蒙页面的无障碍和异步状态，不要改代码，只出 Findings 表。",
+      "expected_primary": "review-harmonyos-design",
+      "acceptable": [
+        "harmonyos-design"
+      ],
+      "reason": "只审不改、产出 Findings，属于严格审视，而非设计或实现。",
+      "tags": [
+        "review",
+        "async",
+        "accessibility"
+      ]
+    },
+    {
+      "id": "route-review-003",
+      "prompt": "对这份已上线设计做一次严格评审，列出 Blocker 和 Major，不需要新方案。",
+      "expected_primary": "review-harmonyos-design",
+      "acceptable": [
+        "harmonyos-design"
+      ],
+      "reason": "评审既有作品并给严重度分级，明确不产出新设计。",
+      "tags": [
+        "review"
+      ]
+    },
+    {
+      "id": "route-vocab-001",
+      "prompt": "松手那一下像突然刹车，这种手感在鸿蒙动效里叫什么？给我准确术语。",
+      "expected_primary": "harmonyos-motion-vocabulary",
+      "acceptable": [
+        "harmonyos-design"
+      ],
+      "reason": "只要术语命名，不要完整审视或修复，命中词汇 Skill 强适用区。",
+      "tags": [
+        "vocabulary",
+        "naming",
+        "gesture"
+      ]
+    },
+    {
+      "id": "route-vocab-002",
+      "prompt": "页面像从同一个卡片长出来，这个转场的专业说法是什么？",
+      "expected_primary": "harmonyos-motion-vocabulary",
+      "acceptable": [
+        "harmonyos-design"
+      ],
+      "reason": "把模糊描述转为准确术语（共享元素/容器转场），属于词汇 Skill。",
+      "tags": [
+        "vocabulary",
+        "transition"
+      ]
+    },
+    {
+      "id": "route-vocab-003",
+      "prompt": "「后端没完成却显示成功」这个现象在动效词汇里怎么命名，对应哪个 ArkUI 能力？",
+      "expected_primary": "harmonyos-motion-vocabulary",
+      "acceptable": [
+        "harmonyos-design"
+      ],
+      "reason": "命名（虚假完成）+能力映射，而非对具体项目做完整异步审视。",
+      "tags": [
+        "vocabulary",
+        "async"
+      ]
+    },
+    {
+      "id": "route-boundary-001",
+      "prompt": "这个 ArkUI 卡片拖动松手像急刹车，帮我分析动效问题并给修复方向。",
+      "expected_primary": "harmonyos-design",
+      "acceptable": [
+        "harmonyos-motion-vocabulary"
+      ],
+      "reason": "要求分析问题与修复方向，超出单纯命名，倾向主 Skill；但『急刹车』也是词汇输入，属真实边界。",
+      "tags": [
+        "boundary",
+        "motion"
+      ]
+    },
+    {
+      "id": "route-boundary-002",
+      "prompt": "review 一下这个页面，并顺便帮我改进整体设计方案。",
+      "expected_primary": "harmonyos-design",
+      "acceptable": [
+        "review-harmonyos-design"
+      ],
+      "reason": "既要评审又要产出新设计方案，超出『只审不改』，倾向主 Skill。",
+      "tags": [
+        "boundary",
+        "review",
+        "design"
+      ]
+    },
+    {
+      "id": "route-boundary-003",
+      "prompt": "审视这段动效，同时告诉我这种手感的专业术语。",
+      "expected_primary": "harmonyos-design",
+      "acceptable": [
+        "harmonyos-motion-vocabulary",
+        "review-harmonyos-design"
+      ],
+      "reason": "审视为主、术语为辅，可能多 Skill 协同；用于测试是否发生错误的单一互斥抢占。",
+      "tags": [
+        "boundary",
+        "motion",
+        "vocabulary"
+      ]
+    },
+    {
+      "id": "route-none-001",
+      "prompt": "HAP 签名失败报 No signing config，帮我修。",
+      "expected_primary": "none",
+      "acceptable": [],
+      "reason": "纯工程构建问题，三个 Skill 都不应触发，作为对照。",
+      "tags": [
+        "none",
+        "build"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,502 @@
+{
+  "version": "1.0.0",
+  "cases": [
+    {
+      "id": "trigger-pos-001",
+      "prompt": "请使用 HarmonyOS-Design 审视这段 ArkTS 页面。",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "review",
+        "arkts"
+      ]
+    },
+    {
+      "id": "trigger-pos-002",
+      "prompt": "这个 ArkUI 卡片拖动松手后像急刹车，帮我分析动效。",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "motion",
+        "gesture"
+      ]
+    },
+    {
+      "id": "trigger-pos-003",
+      "prompt": "手机和平板的 Navigation 应该如何保持一致又充分利用大屏？",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "adaptation",
+        "navigation"
+      ]
+    },
+    {
+      "id": "trigger-pos-004",
+      "prompt": "给我的鸿蒙项目建立一套 springMotion 和 responsiveSpringMotion Token。",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "motion",
+        "implementation"
+      ]
+    },
+    {
+      "id": "trigger-pos-005",
+      "prompt": "检查 geometryTransition 是否和系统默认转场叠加。",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "motion",
+        "navigation"
+      ]
+    },
+    {
+      "id": "trigger-pos-006",
+      "prompt": "审查这个 HarmonyOS 页面在大字体下会不会裁剪。",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "accessibility",
+        "visual"
+      ]
+    },
+    {
+      "id": "trigger-pos-007",
+      "prompt": "这个图标按钮需要哪些 ArkUI 无障碍属性？",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "accessibility",
+        "arkui"
+      ]
+    },
+    {
+      "id": "trigger-pos-008",
+      "prompt": "How should an ArkUI drag hand off velocity into springMotion?",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "motion",
+        "english"
+      ]
+    },
+    {
+      "id": "trigger-pos-009",
+      "prompt": "Review this OpenHarmony tablet layout for mouse and keyboard states.",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "adaptation",
+        "english"
+      ]
+    },
+    {
+      "id": "trigger-pos-010",
+      "prompt": "帮我判断 animateTo、transition 和属性动画应该怎么选。",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "arkui",
+        "motion"
+      ]
+    },
+    {
+      "id": "trigger-pos-011",
+      "prompt": "支付按钮点下就显示成功，但接口要三秒，设计上对吗？",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "async",
+        "motion"
+      ]
+    },
+    {
+      "id": "trigger-pos-012",
+      "prompt": "鸿蒙应用如何避免所有界面都做成 Linear 风格？",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "foundation",
+        "brand"
+      ]
+    },
+    {
+      "id": "trigger-pos-013",
+      "prompt": "这个底部 Tab 在平板上是否应该转成侧边导航？",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "navigation",
+        "adaptation"
+      ]
+    },
+    {
+      "id": "trigger-pos-014",
+      "prompt": "请按规则 ID 审视我的 ArkUI PR，只看设计和动效。",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "review",
+        "rules"
+      ]
+    },
+    {
+      "id": "trigger-pos-015",
+      "prompt": "ListItem 只能长按删除，这符合鸿蒙交互吗？",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "interaction"
+      ]
+    },
+    {
+      "id": "trigger-pos-016",
+      "prompt": "我想为折叠屏做展开前后连续的页面和动效。",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "foldable",
+        "adaptation"
+      ]
+    },
+    {
+      "id": "trigger-pos-017",
+      "prompt": "检查这个自绘图表的 accessibilityVirtualNode 设计。",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "accessibility"
+      ]
+    },
+    {
+      "id": "trigger-pos-018",
+      "prompt": "Tabs 切换动画太慢，如何依据鸿蒙动效参考优化？",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "motion",
+        "performance"
+      ]
+    },
+    {
+      "id": "trigger-pos-019",
+      "prompt": "请设计一个适合车机旋钮和远距观看的鸿蒙界面。",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "adaptation",
+        "design"
+      ]
+    },
+    {
+      "id": "trigger-pos-020",
+      "prompt": "帮我做 Motion Inventory，找出项目里随机的动画参数。",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "motion",
+        "tokens"
+      ]
+    },
+    {
+      "id": "trigger-pos-021",
+      "prompt": "这个 Dialog 关闭后键盘焦点丢了，帮我审视。",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "accessibility",
+        "focus"
+      ]
+    },
+    {
+      "id": "trigger-pos-022",
+      "prompt": "ArkUI 手势过程中修改 width/height 会不会影响帧率？",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "performance",
+        "motion"
+      ]
+    },
+    {
+      "id": "trigger-pos-023",
+      "prompt": "设计保存流程：按下即时反馈，但后端失败时要可恢复。",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "async",
+        "design"
+      ]
+    },
+    {
+      "id": "trigger-pos-024",
+      "prompt": "对比有无 harmonyos-design skill 的 UI 审查质量。",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS/OpenHarmony/ArkUI 的产品设计、动效、适配、无障碍或审视。",
+      "tags": [
+        "evaluation",
+        "skill"
+      ]
+    },
+    {
+      "id": "trigger-neg-001",
+      "prompt": "HAP 签名失败，报 No signing config。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "build"
+      ]
+    },
+    {
+      "id": "trigger-neg-002",
+      "prompt": "帮我修复 ArkTS 泛型类型报错。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "code"
+      ]
+    },
+    {
+      "id": "trigger-neg-003",
+      "prompt": "HarmonyOS 网络权限怎么配置？",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "permissions"
+      ]
+    },
+    {
+      "id": "trigger-neg-004",
+      "prompt": "SQLite 查询很慢，帮我优化索引。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "database"
+      ]
+    },
+    {
+      "id": "trigger-neg-005",
+      "prompt": "按其他移动平台的设计规范重构这个页面。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "other-platform"
+      ]
+    },
+    {
+      "id": "trigger-neg-006",
+      "prompt": "请按其他移动平台的界面指南设计设置页。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "other-platform"
+      ]
+    },
+    {
+      "id": "trigger-neg-007",
+      "prompt": "给品牌设计一个 Logo 和海报。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "brand"
+      ]
+    },
+    {
+      "id": "trigger-neg-008",
+      "prompt": "解释一下什么是 spring 常数。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "general-physics"
+      ]
+    },
+    {
+      "id": "trigger-neg-009",
+      "prompt": "我的华为手机怎么设置应用通知权限？",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "consumer-support"
+      ]
+    },
+    {
+      "id": "trigger-neg-010",
+      "prompt": "帮我写一个 Node.js 后端接口。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "backend"
+      ]
+    },
+    {
+      "id": "trigger-neg-011",
+      "prompt": "DevEco Studio 无法下载 SDK。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "tooling"
+      ]
+    },
+    {
+      "id": "trigger-neg-012",
+      "prompt": "如何把图片压缩到 200KB？",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "image"
+      ]
+    },
+    {
+      "id": "trigger-neg-013",
+      "prompt": "帮我审查这个支付接口是否有 SQL 注入。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "security"
+      ]
+    },
+    {
+      "id": "trigger-neg-014",
+      "prompt": "HarmonyOS NEXT 的市场份额是多少？",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "market"
+      ]
+    },
+    {
+      "id": "trigger-neg-015",
+      "prompt": "请翻译这段 ArkUI 文档。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "translation"
+      ]
+    },
+    {
+      "id": "trigger-neg-016",
+      "prompt": "总结我贴出的设计文章，不需要审视产品。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "summary"
+      ]
+    },
+    {
+      "id": "trigger-neg-017",
+      "prompt": "写一个 CSS 弹跳动画，不涉及鸿蒙。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "web"
+      ]
+    },
+    {
+      "id": "trigger-neg-018",
+      "prompt": "为什么后端请求会超时？",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "backend"
+      ]
+    },
+    {
+      "id": "trigger-neg-019",
+      "prompt": "请生成一张鸿蒙风格的壁纸。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "image-generation"
+      ]
+    },
+    {
+      "id": "trigger-neg-020",
+      "prompt": "分析这段 Java 线程死锁。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "concurrency"
+      ]
+    },
+    {
+      "id": "trigger-neg-021",
+      "prompt": "列出 HarmonyOS 的系统版本历史。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "trigger-neg-022",
+      "prompt": "这个 ArkTS 页面编译不过，只修语法，不讨论 UI。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "code"
+      ]
+    },
+    {
+      "id": "trigger-neg-023",
+      "prompt": "给我推荐一台适合开发鸿蒙的笔记本电脑。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "shopping"
+      ]
+    },
+    {
+      "id": "trigger-neg-024",
+      "prompt": "解释 geometryTransition API 的函数签名，不需要设计建议。",
+      "should_trigger": false,
+      "reason": "主要任务不属于鸿蒙界面设计与动效 Skill，或用户明确排除设计审视。",
+      "tags": [
+        "api-reference-near-miss"
+      ]
+    },
+    {
+      "id": "trigger-pos-025",
+      "prompt": "从零开始做一个 HarmonyOS 平板生产力应用，请先建立设计基线、平台版本档案和首个可交互原型计划。",
+      "should_trigger": true,
+      "reason": "明确要求使用 HarmonyOS-Design 启动新项目并建立跨设备、平台版本、动效和验证基线。",
+      "tags": [
+        "new-project",
+        "foundation",
+        "prototype"
+      ]
+    },
+    {
+      "id": "trigger-pos-026",
+      "prompt": "当前 HarmonyOS 视觉趋势和长期交互原则冲突时应该怎么取舍？请审视我们的设计规范。",
+      "should_trigger": true,
+      "reason": "明确涉及 HarmonyOS 设计知识的永恒基础、版本化平台层和项目覆盖层。",
+      "tags": [
+        "foundation",
+        "versioning",
+        "review"
+      ]
+    },
+    {
+      "id": "trigger-neg-025",
+      "prompt": "帮我剪一支旅游 Vlog，配转场、音乐和字幕。",
+      "should_trigger": false,
+      "reason": "这是通用视频剪辑与叙事任务，不属于 HarmonyOS 产品 UI 或代码生成产品动效。",
+      "tags": [
+        "video",
+        "near-miss"
+      ]
+    },
+    {
+      "id": "trigger-neg-026",
+      "prompt": "用某第三方视频工具做一段没有界面交互的品牌宣传片，帮我设计镜头语言。",
+      "should_trigger": false,
+      "reason": "具体工具身份和能力未核验，且任务是通用非交互视频与镜头叙事，不属于主 Skill。",
+      "tags": [
+        "video",
+        "video-tool",
+        "near-miss"
+      ]
+    }
+  ]
+}

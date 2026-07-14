@@ -1,0 +1,397 @@
+{
+  "name": "HarmonyOS-Design",
+  "version": "1.0.0",
+  "generated_at": "2026-07-14T11:21:28.101326+00:00",
+  "summary": {
+    "skills": 3,
+    "rules": 38,
+    "sources": 26,
+    "trigger_evals": 52,
+    "positive_trigger_evals": 26,
+    "negative_trigger_evals": 26,
+    "review_evals": 17,
+    "tests": "9 passed"
+  },
+  "files": [
+    {
+      "path": ".github/workflows/validate.yml",
+      "size": 449,
+      "sha256": "3371f54e8d0ec8cf1699635c2fe003f3833d620da726bcf664f44b95a4336cef"
+    },
+    {
+      "path": ".gitignore",
+      "size": 148,
+      "sha256": "b68f074bb8310c6ef802f2b4a0336dfc0bd1c4d12acfeedd4e13be8fa06eade0"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size": 1509,
+      "sha256": "93409fd5cff6643f18a8186f302ab626c35e45301627f51e6bc0baeeaad12857"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "size": 1909,
+      "sha256": "7170ddf69ec9316d36a1ee8f238a5971062ecd9ac66324768156c4c57c22ed0c"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "size": 3385,
+      "sha256": "e91f897d0c5e566e935cd7639c4adef108933853918c5038845296f16ab71e7c"
+    },
+    {
+      "path": "LICENSE",
+      "size": 11359,
+      "sha256": "c86843e85c8c7f50d478204b374c3c8897c255ce50a6f646b890d25980b5dc12"
+    },
+    {
+      "path": "NOTICE",
+      "size": 700,
+      "sha256": "5a67b0b26b274a9fdf70bb3cbc796c3d6de98c3ce439ae8f565055edef7264da"
+    },
+    {
+      "path": "README.en.md",
+      "size": 13164,
+      "sha256": "5c1d142128ff59124b423b644aaf00c75e8a3d310c69af454b09de69bf381d79"
+    },
+    {
+      "path": "README.md",
+      "size": 10835,
+      "sha256": "e3dc8f52bb0b6a2ed54c37e1805256d7857db63dfee7b0d002ac7b38226f3be5"
+    },
+    {
+      "path": "SECURITY.md",
+      "size": 791,
+      "sha256": "fea0938031ae8a165d932d1b20168f11258c64f241d44db0632dd175ed87afa4"
+    },
+    {
+      "path": "VERSION",
+      "size": 6,
+      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+    },
+    {
+      "path": "evals/fixtures/async-false-success.ets",
+      "size": 628,
+      "sha256": "ad4f1f744200a9166f9a5330236a1e89f5e645f7d5b0f2ba8cd249bdb8398504"
+    },
+    {
+      "path": "evals/fixtures/custom-card-touch-only.ets",
+      "size": 479,
+      "sha256": "2f555a10808cbe21465890a8066d900aeb8072e381ad32cb17d1c87f89cf3881"
+    },
+    {
+      "path": "evals/fixtures/gesture-velocity-reset.ets",
+      "size": 687,
+      "sha256": "eacbd54db657443992baf954a76be626ca47527f7ef5e526532f2e1eb0f0c431"
+    },
+    {
+      "path": "evals/fixtures/good-basic.ets",
+      "size": 767,
+      "sha256": "c79d73a0369b2a1aa3320ae26fabceed0497510ce75f98492b2702d9016d9b0a"
+    },
+    {
+      "path": "evals/fixtures/image-button-no-a11y.ets",
+      "size": 188,
+      "sha256": "6c789f15ab578dc54788a9740f31aa5539ada6ae5957a374c2078d700d1e38ec"
+    },
+    {
+      "path": "evals/fixtures/layout-animation-in-gesture.ets",
+      "size": 530,
+      "sha256": "ee72febc92002c9df3fc92ca5c234dd57c73bfd18be8d40e6a76089f2302573d"
+    },
+    {
+      "path": "evals/fixtures/longpress-only.ets",
+      "size": 270,
+      "sha256": "d85f19d5b210f88900e0b70690bb07fc27cff6501df7e7a0d7c8201db78e92ce"
+    },
+    {
+      "path": "evals/fixtures/multiple-animateto.ets",
+      "size": 482,
+      "sha256": "ad784b3911237e0d27ac9a60a68ce4748fe11bf939ce7aa2dd3615929e7b1cda"
+    },
+    {
+      "path": "evals/fixtures/shared-transition-overlap.ets",
+      "size": 465,
+      "sha256": "1e3f1efb05024c61f158e3c9ac36ec243f8d91f12960998c5989fb3494e0e9df"
+    },
+    {
+      "path": "evals/fixtures/spring-business-timer.ets",
+      "size": 593,
+      "sha256": "edce7b8a37e845f26f96416b900e147b86d59c83bbcbf7a4e7f603662a8dac2d"
+    },
+    {
+      "path": "evals/fixtures/tablet-phone-layout.ets",
+      "size": 272,
+      "sha256": "d818d862c76a324af5a625e5f577be9e1c0192262e1e50628b3ac87fc9c068bf"
+    },
+    {
+      "path": "evals/review-evals.json",
+      "size": 9197,
+      "sha256": "ed258de791ad5397d451be18cb33919cd45636344df4d9bda38afd81b1b78d35"
+    },
+    {
+      "path": "evals/skill-routing-evals.json",
+      "size": 6336,
+      "sha256": "89d8c0447938f4db090ba398a36df7f2644072959dbb8bd0d9eedd19d78bfc3e"
+    },
+    {
+      "path": "evals/trigger-evals.json",
+      "size": 16890,
+      "sha256": "e5b031dfc6a4f1ed20ef1eeb5b59c82ddbfb19e56a79845b9799b303fee855e9"
+    },
+    {
+      "path": "examples/01-异步保存状态真实性/AFTER.ets",
+      "size": 1698,
+      "sha256": "3d059dfa02225d210924de820368aec25d9f412be7728db6944a013b9d8b34a1"
+    },
+    {
+      "path": "examples/01-异步保存状态真实性/BEFORE.ets",
+      "size": 628,
+      "sha256": "ad4f1f744200a9166f9a5330236a1e89f5e645f7d5b0f2ba8cd249bdb8398504"
+    },
+    {
+      "path": "examples/01-异步保存状态真实性/REVIEW.md",
+      "size": 1012,
+      "sha256": "d59dc7bc6ca75d5ca0bdfe5b145ee14e077201e8dbd61d9b945123a5d86c30e9"
+    },
+    {
+      "path": "examples/02-拖拽速度衔接/AFTER.ets",
+      "size": 939,
+      "sha256": "2746de503918d0073283094fe1fd53f5a805e9a9ae8b4e596d227c85f105b418"
+    },
+    {
+      "path": "examples/02-拖拽速度衔接/BEFORE.ets",
+      "size": 687,
+      "sha256": "eacbd54db657443992baf954a76be626ca47527f7ef5e526532f2e1eb0f0c431"
+    },
+    {
+      "path": "examples/02-拖拽速度衔接/REVIEW.md",
+      "size": 876,
+      "sha256": "10147db9307c37d2ee0451790de1b4aa2ac4f6d15e8546c38d4e047b0c971a39"
+    },
+    {
+      "path": "examples/03-手机到平板适配/AFTER-PLAN.md",
+      "size": 1186,
+      "sha256": "da4f2d92a8e99706661032852ba20fe95a4a1c9324a0b3a49cd92cc28314092f"
+    },
+    {
+      "path": "examples/03-手机到平板适配/BEFORE.ets",
+      "size": 272,
+      "sha256": "d818d862c76a324af5a625e5f577be9e1c0192262e1e50628b3ac87fc9c068bf"
+    },
+    {
+      "path": "examples/03-手机到平板适配/REVIEW.md",
+      "size": 570,
+      "sha256": "5712aea1007efdb8ba9e7274bb82d35f5bdf6d85b5df82e7cac9528a390bc82e"
+    },
+    {
+      "path": "examples/04-永恒原则与版本化视觉层/AFTER-PLAN.md",
+      "size": 776,
+      "sha256": "3b41c7e4f2262694fa437906c409041b0ac0e7a03b276b1c65774f73a8372fa8"
+    },
+    {
+      "path": "examples/04-永恒原则与版本化视觉层/REVIEW.md",
+      "size": 1158,
+      "sha256": "82f65d3b1bd8875a3f4ae09fcebd3bd1337fa85770c60e31977ea483a8c64a09"
+    },
+    {
+      "path": "examples/05-新项目启动基线/PROJECT-BRIEF.md",
+      "size": 550,
+      "sha256": "0c52903c2a1daae841e0d07f9d52d3e0943392cf5208bbdd9c23c71c8e9f3117"
+    },
+    {
+      "path": "examples/05-新项目启动基线/STARTER-PLAN.md",
+      "size": 1307,
+      "sha256": "15d87892ed450b51bc2807b5a903276db2a72d54c21863740a9d1c23de1e5f7e"
+    },
+    {
+      "path": "examples/06-代码生成产品动效边界/REVIEW.md",
+      "size": 1529,
+      "sha256": "1d1e09ff9f6f6e1c8998b89564b05cc89eb503ea82cd3709bd71c6e2e3f52207"
+    },
+    {
+      "path": "examples/MotionTokens.example.ets",
+      "size": 1136,
+      "sha256": "d64b0c11c789edcdcae7df185349cda182b5bbd42af7a730ce94b309df57c580"
+    },
+    {
+      "path": "examples/README.md",
+      "size": 1079,
+      "sha256": "3a0af988f30700607d4cf9582918ac95b986a676d90df93c351d7144ea43d143"
+    },
+    {
+      "path": "examples/ReviewOutput.example.md",
+      "size": 1679,
+      "sha256": "c60b8022671a464dbcf564e19a92654cb2c866157aa6a2ea1368d5d902dfe70c"
+    },
+    {
+      "path": "examples/pilot-app/README.md",
+      "size": 1389,
+      "sha256": "24e07287ae06d3eda3ed039ca9cb73335970e120dfe431c3caa949f6cec3f874"
+    },
+    {
+      "path": "examples/pilot-app/entry/src/main/ets/components/A11yButtonDemo.ets",
+      "size": 909,
+      "sha256": "ad248783a10881d62d38e5adad3a8c9e6d16f5aa28a8ee5077e9768bf4b0aeb3"
+    },
+    {
+      "path": "examples/pilot-app/entry/src/main/ets/components/AdaptiveLayoutDemo.ets",
+      "size": 964,
+      "sha256": "1937f605262787039f09a98974a0ecc5283b20106e12b9b2bbf975342e1b74f0"
+    },
+    {
+      "path": "examples/pilot-app/entry/src/main/ets/components/AsyncSaveDemo.ets",
+      "size": 1690,
+      "sha256": "0ad484867721d8d354b1c88fa92b3ec9affef244a43184c08cd105154a49addb"
+    },
+    {
+      "path": "examples/pilot-app/entry/src/main/ets/components/GestureVelocityDemo.ets",
+      "size": 1179,
+      "sha256": "7e506622ff3a2e12deedfcd6876743a80387e460115d7e286afff52b262ec565"
+    },
+    {
+      "path": "examples/pilot-app/entry/src/main/ets/entryability/EntryAbility.ets",
+      "size": 1433,
+      "sha256": "51ff36a9e27ff9335f3b8db64d86b1c3241c12ecf5fe19a6c3aa411257b0cb91"
+    },
+    {
+      "path": "examples/pilot-app/entry/src/main/ets/entryformability/EntryFormAbility.ets",
+      "size": 1164,
+      "sha256": "8aad241736774efdeef86b8fd08f7a9f3fe43d6079c646a73ca1fa97b3bf9188"
+    },
+    {
+      "path": "examples/pilot-app/entry/src/main/ets/pages/Index.ets",
+      "size": 702,
+      "sha256": "84aa66b2521aa6ae760a14f6a07b02337476ffe6a5fc01b58bf9a540499589b9"
+    },
+    {
+      "path": "examples/pilot-app/entry/src/main/ets/widget/pages/WidgetCard.ets",
+      "size": 1007,
+      "sha256": "9ac49fa20d9ac34f8367403fef6bb86103c849491a4af6e3d3d2e601c6d952fe"
+    },
+    {
+      "path": "pyproject.toml",
+      "size": 480,
+      "sha256": "80c5b7c2bde228ff2373a22c6123b2c2861a8136d04e598a9f282dc2fe0cf672"
+    },
+    {
+      "path": "rules/harmony-design-rules.yaml",
+      "size": 53507,
+      "sha256": "2e8abcc9c12f601cd97eec9b281c7f745381cdc57d3dc7f007bfddd8f645a0b1"
+    },
+    {
+      "path": "rules/schema.json",
+      "size": 7328,
+      "sha256": "8a6142cb91112d7ee2469aa448f5901fb7249bb3d84f4972da15c0bcd4f0df5f"
+    },
+    {
+      "path": "rules/sources.yaml",
+      "size": 6835,
+      "sha256": "fc97c1be6ad13c2756f3d7b4e897ba9846e1740090a6454f10cd77e13fe02e0a"
+    },
+    {
+      "path": "scripts/__init__.py",
+      "size": 45,
+      "sha256": "08893b33cbb7d4598fba99ce7287b84fb4afcf6053bda3488f334bdc03595301"
+    },
+    {
+      "path": "scripts/check_links.py",
+      "size": 1950,
+      "sha256": "d61931846535ea34f23a33404b170781ee8f1a4d62539897c60fdb2467d9f961"
+    },
+    {
+      "path": "scripts/package_release.py",
+      "size": 5286,
+      "sha256": "82d8ddafd85f681e0402dd531feace57ae7aad2ef3f5d758f456d7c4f8dc7bf0"
+    },
+    {
+      "path": "scripts/validate_evals.py",
+      "size": 8205,
+      "sha256": "c9a48f5df13c6733fae717ebbaef2a5aecc82b5c8be1020fd9c6bfdc0564424d"
+    },
+    {
+      "path": "scripts/validate_repo.py",
+      "size": 1498,
+      "sha256": "9563525ceb4b6b26d43a56c04a0c894c412cfcd1051adfc8da54ec00ca08680f"
+    },
+    {
+      "path": "scripts/validate_rules.py",
+      "size": 6002,
+      "sha256": "3c4f003ed4381ff079bdc8c533ddd9f347dca33147b3d72c7d7f0efccd87b5b2"
+    },
+    {
+      "path": "scripts/validate_skills.py",
+      "size": 4745,
+      "sha256": "8d6cf677464996dbf133b999877e7b68be0d923f3a17b967130fa1eb1a751c84"
+    },
+    {
+      "path": "skills/harmonyos-design/SKILL.md",
+      "size": 15180,
+      "sha256": "92df91b1bb1cb2f76ce439b298722c41ff8fb6e92683b6bd97abf8e205ae6623"
+    },
+    {
+      "path": "skills/harmonyos-design/references/ACCESSIBILITY.md",
+      "size": 5664,
+      "sha256": "56929cd300477437c1db60b9a457b9535b33a4b1ad769b31574743df0b73b457"
+    },
+    {
+      "path": "skills/harmonyos-design/references/ADAPTATION.md",
+      "size": 5575,
+      "sha256": "abba69d10cad02d8709878446c9163113a4032726a7bee5bb22e106a937b16d4"
+    },
+    {
+      "path": "skills/harmonyos-design/references/ARKUI-MAPPING.md",
+      "size": 7678,
+      "sha256": "8ad795d4832b7c4b34522e7133293d3f099e8bdb48853fd893c6a53bf1f8c14e"
+    },
+    {
+      "path": "skills/harmonyos-design/references/MOTION.md",
+      "size": 10267,
+      "sha256": "f5ab54ef3577452a60d453ca033e5786f2365771abb8b3780a4f16d2d916d47b"
+    },
+    {
+      "path": "skills/harmonyos-design/references/PRINCIPLES.md",
+      "size": 7155,
+      "sha256": "189e31aefc4fbbb9db440c12728e7b8fa73700986080d2d03ce592ed8a03a7a8"
+    },
+    {
+      "path": "skills/harmonyos-design/references/SOURCES.md",
+      "size": 6908,
+      "sha256": "c5632f52f22a3dba442e5fde321dae727105b56faacf9d9078c4e91c624b17a5"
+    },
+    {
+      "path": "skills/harmonyos-motion-vocabulary/SKILL.md",
+      "size": 7193,
+      "sha256": "74ef738f645c73539d99badcce0faa8cd7015ae57499938440096258be5bc02a"
+    },
+    {
+      "path": "skills/review-harmonyos-design/SKILL.md",
+      "size": 5386,
+      "sha256": "d03260753cb52c5d8cf4fc299a3af600b76d6e3994b7b38e3ed1bd3e32d84ab7"
+    },
+    {
+      "path": "skills/review-harmonyos-design/references/STANDARDS.md",
+      "size": 2680,
+      "sha256": "8f2d77be7a92b906c5756843bf957fe31eaa365dbd47be996af01a04cdc0dcc9"
+    },
+    {
+      "path": "templates/case-study.md",
+      "size": 1523,
+      "sha256": "33ee8c0bbfa466c3e28b935659d29f322dc4f4605a2cfc3b8bc26fcc6af174d3"
+    },
+    {
+      "path": "templates/rule-proposal.md",
+      "size": 1407,
+      "sha256": "37dda20de3dc3e3a25d60e92a501121a1cc087b69c975841bf7e069fa95fd67f"
+    },
+    {
+      "path": "tests/conftest.py",
+      "size": 180,
+      "sha256": "26d5e9a666ab5fd88b2d9e5a9a6b1327c445c218690d8df1896c87943d9bc803"
+    },
+    {
+      "path": "tests/test_validation.py",
+      "size": 2132,
+      "sha256": "8f38e1140dba7c235c43b3e09b4d2de6958a673eefd1c47e76149a1873b5ad85"
+    }
+  ]
+}

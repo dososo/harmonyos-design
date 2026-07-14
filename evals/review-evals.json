@@ -1,0 +1,341 @@
+{
+  "version": "1.0.0",
+  "cases": [
+    {
+      "id": "review-gesture-001",
+      "prompt": "审视这个拖拽回稳为什么像急刹车。",
+      "fixture": "evals/fixtures/gesture-velocity-reset.ets",
+      "expected_rule_ids": [
+        "HD-MOTION-004",
+        "HD-MOTION-005",
+        "HD-MOTION-006"
+      ],
+      "forbidden_claims": [
+        "所有鸿蒙弹簧都必须使用 0.8 阻尼",
+        "0.97 是鸿蒙官方值"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "major"
+    },
+    {
+      "id": "review-async-001",
+      "prompt": "审查保存流程在慢后端下是否真实。",
+      "fixture": "evals/fixtures/async-false-success.ets",
+      "expected_rule_ids": [
+        "HD-ASYNC-001",
+        "HD-ASYNC-002",
+        "HD-A11Y-003"
+      ],
+      "forbidden_claims": [
+        "动画完成就等于保存成功"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "blocker"
+    },
+    {
+      "id": "review-transition-001",
+      "prompt": "审视共享元素页面转场。",
+      "fixture": "evals/fixtures/shared-transition-overlap.ets",
+      "expected_rule_ids": [
+        "HD-MOTION-008"
+      ],
+      "forbidden_claims": [
+        "geometryTransition 可以始终与默认转场叠加"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "major"
+    },
+    {
+      "id": "review-perf-001",
+      "prompt": "审查捏合缩放实现的动画性能。",
+      "fixture": "evals/fixtures/layout-animation-in-gesture.ets",
+      "expected_rule_ids": [
+        "HD-PERF-002"
+      ],
+      "forbidden_claims": [
+        "width 和 height 是手势动画的默认最佳选择"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "major"
+    },
+    {
+      "id": "review-a11y-001",
+      "prompt": "审查删除图标按钮的无障碍。",
+      "fixture": "evals/fixtures/image-button-no-a11y.ets",
+      "expected_rule_ids": [
+        "HD-A11Y-001"
+      ],
+      "forbidden_claims": [
+        "图片组件会自动理解删除语义"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "blocker"
+    },
+    {
+      "id": "review-adapt-001",
+      "prompt": "目标是手机和平板，审查这个固定尺寸页面。",
+      "fixture": "evals/fixtures/tablet-phone-layout.ets",
+      "expected_rule_ids": [
+        "HD-ADAPT-001",
+        "HD-ADAPT-002",
+        "HD-NAV-004",
+        "HD-VISUAL-003"
+      ],
+      "forbidden_claims": [
+        "设置固定 360vp 就完成平板适配"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "blocker"
+    },
+    {
+      "id": "review-interaction-001",
+      "prompt": "审查列表项删除入口。",
+      "fixture": "evals/fixtures/longpress-only.ets",
+      "expected_rule_ids": [
+        "HD-INTERACTION-002"
+      ],
+      "forbidden_claims": [
+        "长按适合所有核心操作"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "major"
+    },
+    {
+      "id": "review-motion-001",
+      "prompt": "审查弹簧动画与业务提交的耦合。",
+      "fixture": "evals/fixtures/spring-business-timer.ets",
+      "expected_rule_ids": [
+        "HD-MOTION-007",
+        "HD-ASYNC-001"
+      ],
+      "forbidden_claims": [
+        "springMotion 的 duration 精确控制完成时间"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "blocker"
+    },
+    {
+      "id": "review-perf-002",
+      "prompt": "审查两个相同参数 animateTo。",
+      "fixture": "evals/fixtures/multiple-animateto.ets",
+      "expected_rule_ids": [
+        "HD-PERF-002"
+      ],
+      "forbidden_claims": [
+        "拆成越多 animateTo 越流畅"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "major"
+    },
+    {
+      "id": "review-input-001",
+      "prompt": "目标是平板和 PC，审查这个自定义卡片。",
+      "fixture": "evals/fixtures/custom-card-touch-only.ets",
+      "expected_rule_ids": [
+        "HD-ADAPT-003",
+        "HD-INTERACTION-003",
+        "HD-A11Y-001"
+      ],
+      "forbidden_claims": [
+        "支持 onTouch 就等于支持键鼠"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "major"
+    },
+    {
+      "id": "review-good-001",
+      "prompt": "审查这个基础保存状态实现，不要为凑数制造问题。",
+      "fixture": "evals/fixtures/good-basic.ets",
+      "expected_rule_ids": [],
+      "forbidden_claims": [
+        "必须加入弹跳",
+        "必须改成玻璃材质"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "note"
+    },
+    {
+      "id": "review-source-001",
+      "prompt": "团队说按钮按下必须缩放到 0.97，因为这是鸿蒙官方规范，请核验。",
+      "expected_rule_ids": [
+        "HD-FOUNDATION-003"
+      ],
+      "forbidden_claims": [
+        "0.97 是鸿蒙官方规定"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "major"
+    },
+    {
+      "id": "review-style-001",
+      "prompt": "把金融应用的所有页面改成深色玻璃、大圆角、弹性错峰，审视这个方向。",
+      "expected_rule_ids": [
+        "HD-FOUNDATION-004",
+        "HD-MOTION-001"
+      ],
+      "forbidden_claims": [
+        "这就是统一的鸿蒙高级感"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "major"
+    },
+    {
+      "id": "review-async-002",
+      "prompt": "收藏操作使用乐观更新；请审视断网、重复点击和响应乱序。",
+      "expected_rule_ids": [
+        "HD-ASYNC-003",
+        "HD-ASYNC-004"
+      ],
+      "forbidden_claims": [
+        "乐观更新不需要回滚"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "major"
+    },
+    {
+      "id": "review-foundation-002",
+      "prompt": "团队要把当前流行的半透明材质和大圆角设为所有鸿蒙产品的永久基础规范，请审视知识分层。",
+      "expected_rule_ids": [
+        "HD-FOUNDATION-004",
+        "HD-FOUNDATION-005"
+      ],
+      "forbidden_claims": [
+        "最新视觉趋势可以替代状态真实性、可读性和无障碍",
+        "所有产品都必须使用同一种当前材质"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "major"
+    },
+    {
+      "id": "review-new-project-001",
+      "prompt": "我们只有一句“做一个鸿蒙记账应用”，Coding Agent 已经开始批量生成手机页面。请审视项目启动过程。",
+      "expected_rule_ids": [
+        "HD-FOUNDATION-001",
+        "HD-FOUNDATION-006"
+      ],
+      "forbidden_claims": [
+        "先生成全部页面再说",
+        "无需确认设备、输入和业务状态"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "major"
+    },
+    {
+      "id": "review-prototype-001",
+      "prompt": "这个复杂拖拽和共享转场只有 Figma 静态稿，没有交互原型或真机实现，能否直接判定通过？",
+      "expected_rule_ids": [
+        "HD-FOUNDATION-007",
+        "HD-MOTION-005",
+        "HD-MOTION-008"
+      ],
+      "forbidden_claims": [
+        "静态稿足以证明手势自然流畅",
+        "不需要快速反向和目标设备验证"
+      ],
+      "required_sections": [
+        "上下文卡",
+        "Findings",
+        "最小修复",
+        "验证",
+        "结论"
+      ],
+      "expected_min_severity": "major"
+    }
+  ]
+}
