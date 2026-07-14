@@ -1,7 +1,7 @@
 {
   "name": "HarmonyOS-Design",
   "version": "1.0.0",
-  "generated_at": "2026-07-14T11:43:27.037861+00:00",
+  "generated_at": "2026-07-14T12:14:48.708180+00:00",
   "summary": {
     "skills": 3,
     "rules": 38,
@@ -50,13 +50,13 @@
     },
     {
       "path": "README.en.md",
-      "size": 13786,
-      "sha256": "89c623471d41d851e03e6dc2f1e74baff883c7601b999649b07a7b2dc1e31b5c"
+      "size": 13845,
+      "sha256": "1c54cddc6fe91d988191955f174a0af889eecb508e15962d25653f40e0a99ade"
     },
     {
       "path": "README.md",
-      "size": 11392,
-      "sha256": "f2b8134f11221cd2611ae2af5ca42f9f74e65b41f171ea336d90f31b4be83c3b"
+      "size": 11453,
+      "sha256": "f8264c92aa8ef5c4dceb6e0fe87eacea1e7aacd0341f35a2ab79c3d9aecbe72d"
     },
     {
       "path": "SECURITY.md",

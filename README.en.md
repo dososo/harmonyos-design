@@ -22,7 +22,7 @@ Core proposition:
 Copy the Skill directories you need into the skills directory of any client that supports Agent Skills:
 
 ```bash
-git clone https://github.com/dososo/harmonyos-design.git
+git clone https://github.com/dososo/HarmonyOS-Design.git
 cp -r harmonyos-design/skills/harmonyos-design            <your-agent-skills-directory>/
 cp -r harmonyos-design/skills/review-harmonyos-design      <your-agent-skills-directory>/
 cp -r harmonyos-design/skills/harmonyos-motion-vocabulary  <your-agent-skills-directory>/
@@ -42,15 +42,10 @@ This ArkUI card slams to a stop when I release the drag; help me analyze the mot
 
 The repository includes a runnable ArkUI sample project, `examples/pilot-app/`, that turns the **correct implementations** the Skills advocate into four scenarios, all verified running on the HarmonyOS emulator (API 21):
 
-| Async state truthfulness | Gesture velocity handoff |
-| --- | --- |
-| ![Async pending](assets/screenshots/pilot-run-04-pending.jpeg) | ![Gesture](assets/screenshots/pilot-run-08-gesture.jpeg) |
-| Tap → button disabled with "Saving…" → "Saved" only **after the real result is confirmed**; the success state never appears early | The drag tracks the finger; on release, `springMotion` inherits the velocity and settles |
-
-| Tablet breakpoint adaptation | Accessible icon button |
-| --- | --- |
-| ![Adaptation](assets/screenshots/pilot-run-05-adapt.jpeg) | ![Accessibility](assets/screenshots/pilot-run-06-a11y.jpeg) |
-| `GridRow` changes its column count with window width (2 columns on phones / 4-6 on tablets) | `Button` carries the icon plus an `accessibilityText` accessible name |
+- **Async state truthfulness** — Tap → button disabled with "Saving…" → "Saved" only **after the real result is confirmed**; the success state never appears early.
+- **Gesture velocity handoff** — The drag tracks the finger; on release, `springMotion` inherits the velocity and settles.
+- **Tablet breakpoint adaptation** — `GridRow` changes its column count with window width (2 columns on phones / 4-6 on tablets).
+- **Accessible icon button** — `Button` carries the icon plus an `accessibilityText` accessible name.
 
 ### Deploying and running in DevEco Studio
 
@@ -211,12 +206,16 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and `templates/`; a new rule must have a 
 
 ---
 
-## About
+## About the Author
 
-**HarmonyOS-Design** is an independent, unofficial open-source project focused on distilling the public design principles of HarmonyOS / OpenHarmony and the implementation capabilities of ArkUI into an evidence-traceable design-judgment system for AI agents and engineering teams.
+**HarmonyOS-Design** is independently created and maintained by **BLCaptain (爆裂队长NEXT)** — an independent, unofficial open-source project focused on distilling the public design principles of HarmonyOS / OpenHarmony and the implementation capabilities of ArkUI into an evidence-traceable design-judgment system for AI agents and engineering teams.
 
-- Repository: https://github.com/dososo/harmonyos-design
-- Issues and suggestions: file them through GitHub Issues
+- GitHub: [@dososo](https://github.com/dososo)
+- X / Twitter: [@thinkszyg](https://x.com/thinkszyg)
+- Email: [blteam2026@outlook.com](mailto:blteam2026@outlook.com)
+- Maintainer of an open-source catalog of traditional Chinese patterns: [wenyang.net](https://wenyang.net/)
+
+If this project helps you, Star it, share it, or reach out to me on X.
 
 HarmonyOS, OpenHarmony, ArkUI, Huawei, and related names and trademarks belong to their respective owners. Rules should be verified against your target SDK, devices, official documentation, and on-device results.
 
