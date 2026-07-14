@@ -52,6 +52,18 @@ cp -r harmonyos-design/skills/harmonyos-motion-vocabulary  <你的-agent-skills-
 | ![适配](assets/screenshots/pilot-run-05-adapt.jpeg) | ![无障碍](assets/screenshots/pilot-run-06-a11y.jpeg) |
 | `GridRow` 随窗口宽度改列数（手机 2 列 / 平板 4–6 列） | `Button` 承载图标 + `accessibilityText` 可访问名称 |
 
+### 在 DevEco Studio 上部署与运行
+
+以下为 pilot-app 在 DevEco Studio 模拟器（Mate 80 Pro Max 镜像 · HarmonyOS 6.0.1 / API 21）上部署并运行的截图：
+
+![DevEco Studio 部署 pilot-app：依赖安装成功、应用已部署](assets/screenshots/pilot-deveco-01-deploy.png)
+
+> `ohpm install` 装配依赖（退出码 0），构建并部署完成，设备桌面就绪。
+
+![「手势速度」场景运行中](assets/screenshots/pilot-deveco-02-gesture.png)
+
+> 拖动方块跟手，离手用 `springMotion` 继承速度平滑回稳。
+
 ---
 
 ## 为什么做这个 Skill

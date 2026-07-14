@@ -52,6 +52,18 @@ The repository includes a runnable ArkUI sample project, `examples/pilot-app/`, 
 | ![Adaptation](assets/screenshots/pilot-run-05-adapt.jpeg) | ![Accessibility](assets/screenshots/pilot-run-06-a11y.jpeg) |
 | `GridRow` changes its column count with window width (2 columns on phones / 4-6 on tablets) | `Button` carries the icon plus an `accessibilityText` accessible name |
 
+### Deploying and running in DevEco Studio
+
+The two screenshots below show pilot-app deployed and running on the DevEco Studio emulator (Mate 80 Pro Max image · HarmonyOS 6.0.1 / API 21):
+
+![DevEco Studio deploying pilot-app: dependencies installed, app deployed](assets/screenshots/pilot-deveco-01-deploy.png)
+
+> `ohpm install` resolves dependencies (exit code 0); the app builds, deploys, and the device home screen is ready.
+
+![The gesture-velocity scenario running](assets/screenshots/pilot-deveco-02-gesture.png)
+
+> The drag tracks the finger; on release, `springMotion` inherits the velocity and settles smoothly.
+
 ---
 
 ## Why These Skills
